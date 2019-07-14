@@ -3,7 +3,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"/>
-	<script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.prod.js"></script>
 	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<head>
 		<title>云音乐</title>
@@ -64,7 +64,7 @@
 							alert("请输入歌曲名称!");
 							return;
 						}
-						$.get("http://music.apiopen.top/search?keywords=" + text,null,function(rdata,status){
+						$.getJSON("http://music.apiopen.top/search?keywords=" + text,function(rdata,status){
 							if(status == "success"){
 								vue.musics = rdata.result.songs;
 							}
